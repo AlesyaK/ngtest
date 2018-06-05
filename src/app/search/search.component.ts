@@ -1,19 +1,28 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+    selector: 'app-search',
+    templateUrl: './search.component.html',
+    styleUrls: ['./search.component.css'],
+    //encapsulation: ViewEncapsulation.Emulated
 })
 export class SearchComponent implements OnInit {
 
-  @Input()
-  public placeholder;
+    @Input()
+    public placeholder;
 
-  constructor() { }
+    @Output()
+    public search: EventEmitter<string> = new EventEmitter();
 
-  public search(e: any): void {
-    console.log(e);
-  }
+    constructor() { }
+
+    public onSearch(e: KeyboardEvent): void {
+        const el = e.target as HTMLInputElement;
+        this.search.emit(el.value);
+        console.log(el.value);
+    }
+
+    ngOnInit() {
+    }
 
 }

@@ -26,5 +26,10 @@
   <!--<h3>{{title}}</h3>-->
   <img [attr.src]="logoSrc" alt="" [style.width.px]="logoWidth">
   <h3 (click)="changeTitle($event)" [innerHTML]="title"></h3>
-  <app-search [placeholder]="placeholder"></app-search>
+  <!--<app-search [placeholder]="placeholder" (search)="text = $event"></app-search>-->
+  <app-search [placeholder]="placeholder" (search)="onSearch($event)"></app-search>
 </app-header>
+{{searchTerm}}
+<pre>
+  {{users | json}}
+</pre>
