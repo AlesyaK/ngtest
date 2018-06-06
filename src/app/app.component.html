@@ -29,7 +29,12 @@
   <!--<app-search [placeholder]="placeholder" (search)="text = $event"></app-search>-->
   <app-search [placeholder]="placeholder" (search)="onSearch($event)"></app-search>
 </app-header>
-{{searchTerm}}
-<pre>
-  {{users | json}}
-</pre>
+<!--<pre>-->
+  <!--{{users | async | json}}-->
+<!--</pre>-->
+<div *ngIf="users | async as UserList; else loadDiv ">
+    <app-card  *ngFor="let user of UserList | usersFilter: searchTerm; index as i; odd as odd;" [user]="user" [index]="i" [isOdd]="odd"></app-card>
+</div>
+<ng-template #loadDiv>
+  ... loading
+</ng-template>

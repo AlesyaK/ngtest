@@ -1,0 +1,5 @@
+<mat-card [ngClass]="{background: isOdd}">
+  <mat-card-title>
+    <span class="number">{{i+1}}</span><img *ngIf="user?.photo" class="avatar" [src]="user?.photo">{{user.firstName}} {{user.surname}}
+  </mat-card-title>
+</mat-card>

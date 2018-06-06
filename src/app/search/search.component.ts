@@ -4,7 +4,7 @@ import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from 
     selector: 'app-search',
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.css'],
-    //encapsulation: ViewEncapsulation.Emulated
+    // encapsulation: ViewEncapsulation.Emulated
 })
 export class SearchComponent implements OnInit {
 
